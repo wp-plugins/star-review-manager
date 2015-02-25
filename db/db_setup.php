@@ -24,7 +24,27 @@
 			title VARCHAR(255),
 			reviewlimit INT,
 			anonymous BOOLEAN,
+			mailnotification VARCHAR(255),
 			UNIQUE KEY id (id)
+		) $charset_collate;";
+		dbDelta($sql);
+		
+		$sql = "CREATE TABLE ".SRM_DB_CONTAINERRATING." (
+			container_id int NOT NULL,
+			ratingcategory VARCHAR(100),
+			ratingpos int NOT NULL,
+			FOREIGN KEY (container_id) REFERENCES ".SRM_DB_REVIEWCONTAINER."(id)
+		) $charset_collate;";
+		dbDelta($sql);
+		
+		$sql = "CREATE TABLE ".SRM_DB_RATING." (
+			container_id int NOT NULL,
+			review_id int NOT NULL,
+			ratingcategory VARCHAR(100),
+			ratingvalue int NOT NULL,
+			ratingpos int NOT NULL,
+			FOREIGN KEY (container_id) REFERENCES ".SRM_DB_REVIEWCONTAINER."(id),
+			FOREIGN KEY (review_id) REFERENCES ".SRM_DB_REVIEWS."(id)
 		) $charset_collate;";
 		dbDelta($sql);
 		

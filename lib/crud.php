@@ -17,8 +17,11 @@
 				$review->container_id = $_POST['crud']['container_id'];
 				if($user_id) $review->user_id = $user_id;
 				if(!empty($_POST['crud']['message'])) $review->message = $_POST['crud']['message'];
-				if(!empty($_POST['crud']['rating'])) $review->rating = $_POST['crud']['rating'];
-				Review::create((array) $review);
+				$review_id = Review::create((array) $review);
+				if(!empty($_POST['crud']['rating'])) {
+					$ratingcategories = $_POST['crud']['rating'];
+					Review::create_review_ratings($review_id, $review->container_id, $ratingcategories);
+				}
 			}
 		  /* reviews with id */
 		  } else if( !empty($_POST['crud']['id']) && $_POST['crud']['action'] && $_POST['crud']['container_id']) {

@@ -26,7 +26,7 @@
 						<td><a href="<?php echo admin_url()."admin.php?page=manage_reviews&container_id=".$container->id; ?>"><?php _e('Manage reviews', 'star-review-manager')?></a></td>
 						<td>[srm_reviews id=<?php echo $container->id; ?>]</td>
 						<td>
-							<form method="post" action="#">
+							<form method="post" action="#" onsubmit="return confirm('<?php _e('Are you sure that you want to delete this container and all related reviews?', 'star-review-manager'); ?>');">
 								<input type="hidden" name="crud[id]" value="<?php echo $container->id;?>" />
 								<input type="hidden" name="crud[action]" value="delete" />
 								<input class="button" type="submit" name="crud[reviewcontainer]" value="<?php _e('Delete', 'star-review-manager'); ?>" />

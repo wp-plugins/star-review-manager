@@ -8,7 +8,7 @@
  * Plugin Name: star-review-manager
  * Plugin URI: http://bdekker.eu/star-review-manager
  * Description: Review managing and export plugin
- * Version: 1.0
+ * Version: 1.1
  * Author: Bram Dekker
  * Author URI: http://bdekker.eu	
  * Text Domain: star-review-manager
@@ -30,7 +30,10 @@ define('SRM_URL',WP_PLUGIN_URL.'/star-review-manager');
 /* db constants */
 define('SRM_DB_USERS','srm_users');
 define('SRM_DB_REVIEWS','srm_reviews');
-define('SRM_DB_REVIEWCONTAINER', 'srm_reviewcontainer');
+define('SRM_DB_REVIEWCONTAINER', 'srm_container');
+define('SRM_DB_CONTAINERRATING', 'srm_containerrating');
+define('SRM_DB_RATING', 'srm_rating');
+
 
 /* buy me a drink */
 define('SRM_FREE', true);
@@ -43,6 +46,7 @@ require_once('classes/class.review.php');
 require_once('classes/class.reviewcontainer.php');
 require_once('classes/class.user.php');
 require_once('admin/admin_menu.php');
+require_once('classes/class.messenger.php');
 
 /* views */
 require_once('views/view.reviews.php');
@@ -50,7 +54,6 @@ require_once('views/view.reviewform.php');
 
 
 require_once('lib/crud.php');
-
 function ap_action_init()
 {
 	$path = dirname( plugin_basename( __FILE__ ) ) . '/languages';

@@ -4,5 +4,5 @@
 <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
 <img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
 </form>
-<span><b><?php _e('This plugin is created with love, please return the favor. Thank you in advance!', 'star-review-manager'); ?></b></span>
+<span><b><?php _e('Thank you in advance.', 'star-review-manager'); ?></b></span>
 

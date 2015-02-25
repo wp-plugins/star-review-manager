@@ -4,6 +4,7 @@
 	function get_reviewform_html($atts) {
 		$container_id = $atts['container_id'];
 		if(empty($atts['container_id']) || !is_numeric($atts['container_id']) ) return '';
+		$ratingcategories = ReviewContainer::get_ratingcategories($container_id);
 		$output = '<!-- '.__('generated review form', 'star-review-manager').' -->';
 		
 		$output .= '<script type="text/javascript">';
@@ -23,6 +24,7 @@
         $output .= 'success:function(data, textStatus, jqXHR) {';
 		$output .= 'var feedback = document.getElementById("feedback");';
 		$output .= 'if (feedback.style.display == "none") { feedback.style.display = ""; }';
+		$output .= 'jQuery("#srm-form").fadeOut(400);';
 		$output .= 'jQuery(":input","#srm-form").not(":button, :submit, :reset, :hidden").val("").removeAttr("checked").removeAttr("selected");';
         $output .= '},';
         $output .= 'error: function(jqXHR, textStatus, errorThrown){';
@@ -50,17 +52,19 @@
 		$output .= '</div>';
 		
 		$output .= '<div class="srm-form-group">';
-		$output .= '<label><span>'.__("Rating", "star-review-manager").'</span>';
-		$output .= '<div class="star-rating">';
-		$output .= '<input type="radio" name="crud[rating]" value="1"><i></i>';
-		$output .= '<input type="radio" name="crud[rating]" value="2"><i></i>';
-		$output .= '<input type="radio" name="crud[rating]" value="3"><i></i>';
-		$output .= '<input type="radio" name="crud[rating]" value="4"><i></i>';
-		$output .= '<input type="radio" name="crud[rating]" value="5"><i></i>';
-		$output .= '</div>';
+		$output .= '<label><span>'.__("Rating", "star-review-manager").'</span><br>';
+		foreach($ratingcategories as $ratingcategory) {
+			$output .= '<small>'. $ratingcategory['ratingcategory'] .'</small>'; 
+			$output .= '<div class="star-rating">';
+				$output .= '<input type="radio" name="crud[rating]['. $ratingcategory['ratingcategory'] .']" value="1"><i></i>';
+				$output .= '<input type="radio" name="crud[rating]['. $ratingcategory['ratingcategory'] . ']" value="2"><i></i>';
+				$output .= '<input type="radio" name="crud[rating]['. $ratingcategory['ratingcategory'] . ']" value="3"><i></i>';
+				$output .= '<input type="radio" name="crud[rating]['. $ratingcategory['ratingcategory'] . ']" value="4"><i></i>';
+				$output .= '<input type="radio" name="crud[rating]['. $ratingcategory['ratingcategory'] . ']" value="5"><i></i>';
+			$output .= '</div>';
+		}
 		$output .= '</label>';
 		$output .= '</div>';
-		
 		$output .= '<input type="hidden" name="crud[container_id]" value="'.$container_id.'" />';
 		$output .= '<input type="hidden" name="crud[action]" value="create" />';
 		$output .= '<input type="hidden" name="crud[review]" value="'.__("Add review", "star-review-manager").'" /><!-- remove this one if you are not using ajax -->';

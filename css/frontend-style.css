@@ -48,6 +48,23 @@
 	padding-right: 0;
 }
 
+.srm-review .srm-ratingcontainer {
+  display: table;
+}
+
+.srm-review .srm-categoryrating-grouping {
+  display: table-row;
+}
+
+.srm-review .srm-category {
+  display: table-cell;
+  padding-right: 2em;
+}
+
+.srm-rating {
+  display: table-cell;
+}
+
 /* stars review */
 .srm-review .srm-stars-rating {
   unicode-bidi: bidi-override;

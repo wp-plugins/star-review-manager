@@ -1,5 +1,6 @@
 <?php
 add_action( 'admin_menu', 'plugin_admin_pages' );
+add_action('admin_menu', 'notification_bubble_in_admin_menu');
 
 function plugin_admin_pages() {
 	add_menu_page( 'manage_reviewcontainers',  __('Manage review instances', 'star-review-manager'), 'manage_options', 'manage_reviewcontainers', 'manage_reviewcontainers', '', 56);
@@ -32,4 +33,17 @@ function settings() {
 function help() {
 	include ("help.php");
 }
+
+function notification_bubble_in_admin_menu() {
+	global $menu;
+    $pendingreviews = get_pending_reviews();
+    $menu[56][0] .= $pendingreviews ? '<span class="update-plugins count-1"><span class="update-count">' . $pendingreviews . __(' pending', 'star-review-manager') . '</span></span>' : '';
+}
+
+function get_pending_reviews()
+{
+    global $wpdb;
+    return $wpdb->get_var("SELECT COUNT(*) FROM ". SRM_DB_REVIEWS ." WHERE status=0;");
+}
+
 ?>

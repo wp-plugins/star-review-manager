@@ -10,17 +10,17 @@
 <div class="wrap">
 	<?php if(SRM_FREE) { showDonate(); }; ?><br><br>
 	 <a class="button" href="<?php echo admin_url()."admin.php?page=manage_reviewcontainers"; ?>"/><?php _e('Back to review instances overview', 'star-review-manager'); ?></a>
-	<h2 style="color: red;">Pending reviews</h2>
+	<h2 style="color: red;"><?php _e('Pending reviews', 'star-review-manager'); ?></h2>
 	<table class="table">
 		<thead>
 			<tr>
-				<th><?php _e('ID', 'star-review-manager'); ?></th>
-				<th><?php _e('Message', 'star-review-manager'); ?></th>
-				<th><?php _e('Rating', 'star-review-manager'); ?></th>
-				<th><?php _e('Created', 'star-review-manager'); ?></th>
-				<th><?php _e('User', 'star-review-manager'); ?></th>
-				<th><?php _e('Delete', 'star-review-manager'); ?></th>
-				<th><?php _e('Approve', 'star-review-manager'); ?></th>
+				<th class="hidden-phone col-sm-1 col-lg-1 col-md-1"><?php _e('ID', 'star-review-manager'); ?></th>
+				<th class="col-sm-4 col-lg-4 col-md-4"><?php _e('Message', 'star-review-manager'); ?></th>
+				<th class="col-sm-1 col-lg-1 col-md-1"><?php _e('Rating', 'star-review-manager'); ?></th>
+				<th class="hidden-phone col-sm-2 col-lg-2 col-md-2"><?php _e('Created', 'star-review-manager'); ?></th>
+				<th class="hidden-phone col-sm-2 col-lg-2 col-md-2"><?php _e('User', 'star-review-manager'); ?></th>
+				<th class="col-sm-1 col-lg-1 col-md-1"><?php _e('Delete', 'star-review-manager'); ?></th>
+				<th class="col-sm-1 col-lg-1 col-md-1"><?php _e('Approve', 'star-review-manager'); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,7 +30,19 @@
 					<tr>
 						<td><?php echo $review->id; ?></td>
 						<td><?php echo $review->message; ?></td>
-						<td><?php echo $review->rating; ?></td>
+						<td>
+							<div class="row">
+							<?php
+							$reviewratings = Review::get_review_ratings($review->id);
+							if($reviewratings && !empty($reviewratings)) {
+								foreach($reviewratings as $rating) {
+									echo '<span class="col-xs-6 col-lg-6 col-md-6">'. $rating['ratingcategory'] .'</span>'; 
+									echo '<span class="col-xs-6 col-lg-6 col-md-6"> ' . $rating['ratingvalue'] . '</span><br>';
+								}
+							}
+							?>
+							</div>
+						</td>
 						<td><?php echo date('F d, Y h:mA', strtotime($review->created)); ?></td>
 						<td>
 						<?php 	if($review->user_id != NULL) {
@@ -65,16 +77,16 @@
 		</tbody>
 	 </table>
 	 
-	 <h2 style="color: green;">Active reviews</h2>
+	 <h2 style="color: green;"><?php _e('Active reviews', 'star-review-manager'); ?></h2>
 	<table class="table">
 		<thead>
 			<tr>
-				<th><?php _e('ID', 'star-review-manager'); ?></th>
-				<th><?php _e('Message', 'star-review-manager'); ?></th>
-				<th><?php _e('Rating', 'star-review-manager'); ?></th>
-				<th><?php _e('Created', 'star-review-manager'); ?></th>
-				<th><?php _e('User', 'star-review-manager'); ?></th>
-				<th><?php _e('Delete', 'star-review-manager'); ?></th>
+				<th class="hidden-phone col-sm-1 col-lg-1 col-md-1"><?php _e('ID', 'star-review-manager'); ?></th>
+				<th class="col-sm-4 col-lg-4 col-md-4"><?php _e('Message', 'star-review-manager'); ?></th>
+				<th class="col-sm-1 col-lg-1 col-md-1"><?php _e('Rating', 'star-review-manager'); ?></th>
+				<th class="hidden-phone col-sm-2 col-lg-2 col-md-2"><?php _e('Created', 'star-review-manager'); ?></th>
+				<th class="hidden-phone col-sm-2 col-lg-2 col-md-2"><?php _e('User', 'star-review-manager'); ?></th>
+				<th class="col-sm-2 col-lg-2 col-md-2"><?php _e('Delete', 'star-review-manager'); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -84,7 +96,19 @@
 					<tr>
 						<td><?php echo $review->id; ?></td>
 						<td><?php echo $review->message; ?></td>
-						<td><?php echo $review->rating; ?></td>
+						<td>
+							<div class="row">
+							<?php
+							$reviewratings = Review::get_review_ratings($review->id);
+							if($reviewratings && !empty($reviewratings)) {
+								foreach($reviewratings as $rating) {
+									echo '<span class="col-xs-6 col-lg-6 col-md-6">'. $rating['ratingcategory'] .'</span>'; 
+									echo '<span class="col-xs-6 col-lg-6 col-md-6"> ' . $rating['ratingvalue'] . '</span><br>';
+								}
+							}
+							?>
+							</div>
+						</td>
 						<td><?php echo gmdate("d M Y H:i", strtotime($review->created)); ?></td>
 						<td>
 						<?php 	if($review->user_id != NULL) {

@@ -26,7 +26,17 @@
 			$output .= '<div>'.$review->message.'</div>';
 			$output .= '</div>';
 			$output .= '<div class="srm-grouping">';
-			$output .= '<div class="srm-'. $option_type .'-rating">' . get_rating($review->rating) . '</div>';
+			$reviewratings = Review::get_review_ratings($review->id);
+			if($reviewratings && !empty($reviewratings)) {
+				$output .= '<div class="srm-ratingcontainer">';
+				foreach($reviewratings as $rating) {
+					$output .= '<div class="srm-categoryrating-grouping">';
+					$output .= '<small class="srm-category">'. $rating['ratingcategory'] .'</small>'; 
+					$output .= '<div class="srm-rating srm-'. $option_type .'-rating">' . get_rating($rating['ratingvalue']) . '</div>';
+					$output .= '</div>';
+				}
+				$output .= '</div>';
+			}
 			$output .= '</div>';
 			$output .= '<div class="srm-grouping">';
 			if($review->user_id != NULL && User::get_user($review->user_id)) {
