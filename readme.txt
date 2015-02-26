@@ -26,6 +26,14 @@ Unzip the star-review-manager.zip file in your plugin folder and activate your p
 
 And you're done!
 
+== Screenshots ==
+
+1. Easily check wheter you have pending reviews that are waiting for approval.
+2. Add a dynamic amount of rating categories to your review instance. This way, you can customize the review perfectly for your business.
+3. You have the ability to add your own custom css on top of the already existing CSS. Style your reviews and review form just the way you want.
+4. Get a clear overview of reviews that are still pending or already active and make a choice to approve or delete them.
+5. Create a review form and related reviews just with two simple shortcodes!
+
 == Changelog ==
 
 == v1.1 == 
