@@ -7,7 +7,7 @@
  * @wordpress-plugin
  * Plugin Name: star-review-manager
  * Plugin URI: http://bdekker.eu/star-review-manager
- * Description: Review managing and export plugin
+ * Description: Easily set up a review page and manage your reviews using Star Review Manager.  
  * Version: 1.1
  * Author: Bram Dekker
  * Author URI: http://bdekker.eu	
