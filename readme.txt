@@ -1,6 +1,6 @@
 === Star Review Manager ===
-Contributors: Bram Dekker
-Tags: srm, review, manager, review form, form
+Contributors: bramd
+Tags: srm, review, manager, review form, form, rating, ratings, star rating, shortcode, business, feedback, rating categories
 Requires at least: 3.1
 Tested up to: 4.1.1
 Stable tag: 1.1
@@ -26,6 +26,20 @@ Unzip the star-review-manager.zip file in your plugin folder and activate your p
 
 And you're done!
 
+== Frequently Asked Questions ==
+
+= What is a review instance =
+
+A review instance is a container in which your reviews reside.
+
+= How do I manage my reviews =
+You can manage (approve or delete) your reviews by clicking on the manage reviews link on the Manage review instances page.
+
+= I created a review instance but I do not see anything show up on the page? =
+Make sure that you include the review container shortcode (do not forget to also include the id parameter that can be found in the review instances table). 
+Next to the review container, make sure that you also include the review form short-tag (including the related container_id parameter).
+More information about this can be found on the help page, located in the admin menu.
+
 == Screenshots ==
 
 1. Easily check wheter you have pending reviews that are waiting for approval
@@ -36,16 +50,21 @@ And you're done!
 
 == Changelog ==
 
-== v1.1 == 
-Added email feedback upon review submit.
-Added option to enter receiver email when creating a review instance
-Fixed some minor translation errors.
-Add notification when there are pending reviews.
-Added option to add multiple rating categories (e.g. service, maintenance)
+= 1.1 =
+* Added email feedback upon review submit.
+* Added option to enter receiver email when creating a review instance
+* Fixed some minor translation errors.
+* Add notification when there are pending reviews.
+* Added option to add multiple rating categories (e.g. service, maintenance)
 
 NOTE: this version included a database change. 
 Because of this you, reviews created using v1.0 will not have any categorized ratings (that did not exist in 1.0). If you really need to convert the data, please send me an e-mail and I will help you out.
 
 
-== v1.0 ==
-Release Date: 20 Feb 2015
+= 1.0 =
+* Release Date: 20 Feb 2015
+
+== Upgrade Notice ==
+
+= 1.1 =
+You are able to add a dynamic amount of rating categories now, e.g., service, drinks,food.
