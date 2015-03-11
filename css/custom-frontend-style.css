@@ -24,6 +24,34 @@
 
 }
 
+/* =================== 
+    Styles related to the pagination of the reviews (if you did set a review instance limit) 
+    ==================
+*/
+.srm-pagination {
+
+}
+
+.srm-pagination .page-indicator {
+
+}
+
+.srm-pagination .page-indicator.disabled {
+
+} 
+
+.srm-pagination .page-indicator.disabled:hover {
+
+} 
+
+
+.srm-pagination .page-indicator:hover {
+ 
+}
+
+.srm-pagination .page-indicator.active {
+ 
+ }
 
 /* =================== 
     Styles related to the review containers 

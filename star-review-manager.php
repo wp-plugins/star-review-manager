@@ -8,7 +8,7 @@
  * Plugin Name: star-review-manager
  * Plugin URI: http://bdekker.eu/star-review-manager
  * Description: Easily set up a review page and manage your reviews using Star Review Manager.  
- * Version: 1.1
+ * Version: 1.2
  * Author: Bram Dekker
  * Author URI: http://bdekker.eu	
  * Text Domain: star-review-manager

@@ -11,15 +11,15 @@
 		$output .= 'function showFeedback() {';
 		$output .= 'var feedback = document.getElementById("feedback");';
 		$output .= 'if (feedback.style.display == "none") { feedback.style.display = ""; } };';
-		
 		$output .= 'jQuery(function() {';
 		$output .= 'jQuery("#srm-form").submit(function(e) {';
-		$output .= 'var postData = jQuery(this).serializeArray();';
+		$output .= 'var postData = jQuery(this).serialize();';
 		$output .= 'var formURL = jQuery(this).attr("action");';
 		$output .= 'var formMethod = jQuery(this).attr("method");';
 		$output .= 'jQuery.ajax({';
-		$output .= 'url : formURL,';
+		$output .= 'url: formURL,';
 		$output .= 'type: formMethod,';
+		$output .= 'dataType: "text",';
 		$output .= 'data: postData,';
         $output .= 'success:function(data, textStatus, jqXHR) {';
 		$output .= 'var feedback = document.getElementById("feedback");';
@@ -35,7 +35,7 @@
 		
 		$output .= '<div id="feedback" style="display: none;"><span><b>'.__("Thank you for sending in your review. 
 		When your review has been approved, it will be made visible", "star-review-manager").'</b></span></div>';
-		$output .= '<form class="srm-form" id="srm-form" method="post" action="#">';
+		$output .= '<form class="srm-form" id="srm-form" method="post" action="">';
 		$output .= '<div class="srm-form-group">';
 		$output .= '<label><span>'.__("Firstname", "star-review-manager").'</span>';
 		$output .= '<input name="crud[firstname]" type="text" />';
@@ -52,7 +52,7 @@
 		$output .= '</div>';
 		
 		$output .= '<div class="srm-form-group">';
-		$output .= '<label><span>'.__("Rating", "star-review-manager").'</span><br>';
+		$output .= '<span>'.__("Rating", "star-review-manager").'</span><br>';
 		foreach($ratingcategories as $ratingcategory) {
 			$output .= '<small>'. $ratingcategory['ratingcategory'] .'</small>'; 
 			$output .= '<div class="star-rating">';
@@ -63,7 +63,6 @@
 				$output .= '<input type="radio" name="crud[rating]['. $ratingcategory['ratingcategory'] . ']" value="5"><i></i>';
 			$output .= '</div>';
 		}
-		$output .= '</label>';
 		$output .= '</div>';
 		$output .= '<input type="hidden" name="crud[container_id]" value="'.$container_id.'" />';
 		$output .= '<input type="hidden" name="crud[action]" value="create" />';

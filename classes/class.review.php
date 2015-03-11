@@ -17,10 +17,18 @@ class Review {
     return stripslashes_deep($reviews);
   }
   
-  public function get_reviews_by_container($container_id, $status = 1) {
+  /* retrieves the reviews from the database */
+  public function get_reviews_by_container($container_id, $status = 1, $limit = 0, $offset = 0) {
 	global $wpdb;
-    $reviews = $wpdb->get_results('SELECT * FROM '.SRM_DB_REVIEWS.' WHERE container_id = '.$container_id.' AND status='.$status);
-    return stripslashes_deep($reviews);
+	$query = 'SELECT * FROM '.SRM_DB_REVIEWS.' WHERE container_id = %d AND status=%d';
+	if($limit != 0) {
+		$query .= ' LIMIT %d'; 
+	}
+	if($offset != 0) {
+		$query .= ' OFFSET %d'; 
+	}
+    $reviews = $wpdb->get_results($wpdb->prepare($query, $container_id, $status, $limit, $offset));
+	return stripslashes_deep($reviews);
   }
 
   public function update($review){
@@ -52,7 +60,7 @@ class Review {
   
   public function get_review_ratings($review_id) {
 	global $wpdb;
-    $categories = $wpdb->get_results('SELECT ratingcategory, ratingvalue FROM '.SRM_DB_RATING.' WHERE review_id='.$review_id.' ORDER BY ratingpos', ARRAY_A);
+    $categories = $wpdb->get_results( $wpdb->prepare('SELECT ratingcategory, ratingvalue FROM '.SRM_DB_RATING.' WHERE review_id=%d ORDER BY ratingpos', $review_id), ARRAY_A);
     if(empty($categories)) return '';
 	return stripslashes_deep($categories);
   }
@@ -61,14 +69,14 @@ class Review {
   public function delete($id){
     global $wpdb;
     if(empty($id)) return '';
-	$wpdb->query('DELETE FROM '.SRM_DB_RATING.' WHERE review_id='.$id); 
-	$wpdb->query("DELETE FROM ".SRM_DB_REVIEWS." WHERE id=".$id); 
+	$wpdb->query( $wpdb->prepare('DELETE FROM '.SRM_DB_RATING.' WHERE review_id=%d', $id) ); 
+	$wpdb->query( $wpdb->prepare('DELETE FROM '.SRM_DB_REVIEWS.' WHERE id=%d', $id) ); 
   }
   
   public function approve($id) {
 	global $wpdb;
 	if(empty($id)) return '';
-	$wpdb->query("UPDATE ".SRM_DB_REVIEWS." SET status=1 WHERE id=".$id);
+	$wpdb->query( $wpdb->prepare("UPDATE ".SRM_DB_REVIEWS." SET status=1 WHERE id=%d", $id) );
   }
 }
 ?>

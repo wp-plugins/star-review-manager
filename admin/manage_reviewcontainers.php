@@ -1,7 +1,7 @@
 <div class="wrap">
 	<?php if(SRM_FREE) { showDonate(); }; ?><br><br>
 	<h2><?php _e('Review instances', 'star-review-manager'); ?></h2>
-	<a class="button" href="<?php echo admin_url()."admin.php?page=new_review"; ?>"/><?php _e('Create review instance', 'star-review-manager'); ?></a>
+	<a class="button" href="<?php echo admin_url()."admin.php?page=new_reviewcontainer"; ?>"/><?php _e('Create review instance', 'star-review-manager'); ?></a>
 	<table class="table table-fluid">
 		<thead>
 			<tr>

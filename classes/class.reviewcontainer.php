@@ -18,14 +18,17 @@ class ReviewContainer {
   
   public function get_reviewcontainer($id){
     global $wpdb;
-    $container = $wpdb->get_results('SELECT * FROM '.SRM_DB_REVIEWCONTAINER.' WHERE id='.$id.' LIMIT 1', ARRAY_A)[0];
-    if(empty($container)) return '';
+    $containers = $wpdb->get_results( $wpdb->prepare('SELECT * FROM '.SRM_DB_REVIEWCONTAINER.' WHERE id=%d LIMIT 1', $id), ARRAY_A);
+    if(empty($containers)) return '';
+	if(is_array($containers)) {
+		$container = $containers[0];
+	}
 	return stripslashes_deep($container);
   }
   
   public function get_ratingcategories($id){
     global $wpdb;
-    $categories = $wpdb->get_results('SELECT ratingcategory FROM '.SRM_DB_CONTAINERRATING.' WHERE container_id='.$id.' ORDER BY ratingpos', ARRAY_A);
+    $categories = $wpdb->get_results( $wpdb->prepare('SELECT ratingcategory FROM '.SRM_DB_CONTAINERRATING.' WHERE container_id=%d ORDER BY ratingpos', $id), ARRAY_A);
     if(empty($categories)) return '';
 	return stripslashes_deep($categories);
   }
@@ -43,7 +46,7 @@ class ReviewContainer {
   
   public function get_size($container_id, $status = 1) {
 	 global $wpdb;
-	 return $wpdb->get_var("SELECT COUNT(*) AS count FROM ".SRM_DB_REVIEWS." WHERE container_id=".$container_id." AND status=".$status); 
+	 return $wpdb->get_var( $wpdb->prepare("SELECT COUNT(*) AS count FROM ".SRM_DB_REVIEWS." WHERE container_id=%d AND status=%d", $container_id, $status)); 
   }
   
   /* create different container ratings, mostly used for this instance */
@@ -65,10 +68,10 @@ class ReviewContainer {
   public function delete($id){
     global $wpdb;
     if(empty($id)) return '';
-	$wpdb->query('DELETE FROM '.SRM_DB_CONTAINERRATING.' WHERE container_id='.$id); 
-	$wpdb->query('DELETE FROM '.SRM_DB_RATING.' WHERE container_id='.$id); 
-	$wpdb->query('DELETE FROM '.SRM_DB_REVIEWS.' WHERE container_id='.$id); 
-	$wpdb->query('DELETE FROM '.SRM_DB_REVIEWCONTAINER.' WHERE id='.$id); 
+	$wpdb->query( $wpdb->prepare('DELETE FROM '.SRM_DB_CONTAINERRATING.' WHERE container_id=%d', $id)); 
+	$wpdb->query( $wpdb->prepare('DELETE FROM '.SRM_DB_RATING.' WHERE container_id=%d', $id)); 
+	$wpdb->query( $wpdb->prepare('DELETE FROM '.SRM_DB_REVIEWS.' WHERE container_id=%d', $id)); 
+	$wpdb->query( $wpdb->prepare('DELETE FROM '.SRM_DB_REVIEWCONTAINER.' WHERE id=%d', $id)); 
   }
 }
 ?>

@@ -1,5 +1,5 @@
 === Star Review Manager ===
-Contributors: bramdnl
+Contributors: bramd
 Tags: srm, review, manager, review form, form, rating, ratings, star rating, shortcode, business, feedback, rating categories
 Requires at least: 3.1
 Tested up to: 4.1.1
@@ -49,6 +49,12 @@ More information about this can be found on the help page, located in the admin 
 5. Create a review form and related reviews just with two simple shortcodes
 
 == Changelog ==
+= 1.2 =
+* Added measures to prevent Sql injection.
+* Added measures to avoid XSS
+* Added pagination based on the review limit of the review instance
+* Added the option to remove chosen categories when creating a review instance.
+* Fixed IE bug that the form would not send because of ajax
 
 = 1.1 =
 * Added email feedback upon review submit.

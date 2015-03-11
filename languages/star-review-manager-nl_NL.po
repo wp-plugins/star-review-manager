@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: star-review-manager\n"
-"POT-Creation-Date: 2015-02-25 20:42+0100\n"
-"PO-Revision-Date: 2015-02-25 20:42+0100\n"
+"POT-Creation-Date: 2015-03-11 18:42+0100\n"
+"PO-Revision-Date: 2015-03-11 18:42+0100\n"
 "Last-Translator: \n"
 "Language-Team: Bram Dekker\n"
 "Language: nl_NL\n"
@@ -30,24 +30,28 @@ msgid "Star Manager Review Settings"
 msgstr "Star Review Manager Opties"
 
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/admin_menu.php:8
-msgid "Create new review"
-msgstr "Maak nieuwe recensie"
+msgid "Create new review container"
+msgstr "Creeër nieuwe recensie instantie"
 
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/admin_menu.php:9
+msgid "Review container settings"
+msgstr "Recensie instantie opties"
+
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/admin_menu.php:10
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviewcontainers.php:12
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviewcontainers.php:26
 msgid "Manage reviews"
 msgstr "Beheer recensies"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/admin_menu.php:10
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/admin_menu.php:11
 msgid "Help"
 msgstr "Help"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/admin_menu.php:16
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/admin_menu.php:17
 msgid "You do not have sufficient permissions to access this page."
 msgstr "U heeft niet voldoende rechten om deze pagina te bekijken."
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/admin_menu.php:40
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/admin_menu.php:46
 msgid " pending"
 msgstr " wachtend"
 
@@ -377,14 +381,14 @@ msgid "Create review instance"
 msgstr "Maak nieuwe recensie instantie"
 
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviewcontainers.php:8
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:45
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:46
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:60
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:61
 msgid "Title"
 msgstr "Titel"
 
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviewcontainers.php:9
 msgid "Review limit"
-msgstr "Recensie limiiet"
+msgstr "Recensie limiet"
 
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviewcontainers.php:10
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviews.php:13
@@ -417,7 +421,7 @@ msgstr ""
 "verwijderen?"
 
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviews.php:12
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:66
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:85
 msgid "Back to review instances overview"
 msgstr "Terug naar overzicht"
 
@@ -436,7 +440,7 @@ msgstr "Bericht"
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviews.php:86
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviewform.php:55
 msgid "Rating"
-msgstr "Waarde"
+msgstr "Waarderingen"
 
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviews.php:20
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/manage_reviews.php:87
@@ -458,35 +462,43 @@ msgstr "Goedkeuren"
 msgid "Anonymous"
 msgstr "Onbekend"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:40
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:55
 msgid "New Review instance"
 msgstr "Nieuwe recensie instantie"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:49
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:64
 msgid "Rating categories"
-msgstr "Waarde categorieën"
+msgstr "Waarderings categorieën"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:54
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:69
 msgid "Category name"
 msgstr "Categorie naam"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:55
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:70
 msgid "Add category"
 msgstr "Voeg categorie toe"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:58
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:73
+msgid "Email notification"
+msgstr "E-mail notificatie"
+
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:74
 msgid "Send me notifications on review submit"
 msgstr "Stuur mij notificaties bij het plaatsen van een recensie"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:61
-msgid "Enter the email address to notify"
-msgstr "Vul het te notificeren e-mailadres in"
-
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:62
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:77
 msgid "Email addres"
 msgstr "E-mailadres"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_review.php:65
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:81
+msgid "Amount of reviews per page"
+msgstr "Aantal recensies per pagina"
+
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:82
+msgid "0 is infinite"
+msgstr "0 is oneindig"
+
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/new_reviewcontainer.php:84
 #: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/admin/settings.php:16
 msgid "Save"
 msgstr "Opslaan"
@@ -543,30 +555,46 @@ msgstr "Voornaam"
 msgid "Lastname"
 msgstr "Achternaam"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviewform.php:70
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviewform.php:72
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviewform.php:69
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviewform.php:71
 msgid "Add review"
 msgstr "Plaats recensie"
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:21
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:49
 msgid "automatically generated review output"
 msgstr "automatisch gegeneerde recensie uitvoer."
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:22
-msgid "a plugin by Bram Dekker"
-msgstr "een plugin geschreven door Bram Dekker"
-
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:45
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:72
 msgid "created by "
 msgstr "geplaatst door "
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:48
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:75
 msgid "created by Anonymous"
 msgstr "geplaatst door een onbekend persoon "
 
-#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:50
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:77
 msgid " at "
 msgstr " op "
+
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:84
+msgid "first"
+msgstr "eerste"
+
+#: C:/xampp/htdocs/plugin/wp-content/plugins/star-review-manager/views/view.reviews.php:88
+msgid "last"
+msgstr "laatste"
+
+#~ msgid "0 is inifite"
+#~ msgstr "0 is oneindig"
+
+#~ msgid "Create new review"
+#~ msgstr "Maak nieuwe recensie"
+
+#~ msgid "Enter the email address to notify"
+#~ msgstr "Vul het te notificeren e-mailadres in"
+
+#~ msgid "a plugin by Bram Dekker"
+#~ msgstr "een plugin geschreven door Bram Dekker"
 
 #~ msgid ""
 #~ "This plugin is created with love, please return the favor. Thank you in "
