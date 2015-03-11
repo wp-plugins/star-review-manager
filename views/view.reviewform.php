@@ -52,7 +52,7 @@
 		$output .= '</div>';
 		
 		$output .= '<div class="srm-form-group">';
-		$output .= '<span>'.__("Rating", "star-review-manager").'</span><br>';
+		$output .= '<label><span>'.__("Rating", "star-review-manager").'</span></label>';
 		foreach($ratingcategories as $ratingcategory) {
 			$output .= '<small>'. $ratingcategory['ratingcategory'] .'</small>'; 
 			$output .= '<div class="star-rating">';
