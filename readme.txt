@@ -3,7 +3,7 @@ Contributors: bramd
 Tags: srm, review, manager, review form, form, rating, ratings, star rating, shortcode, business, feedback, rating categories
 Requires at least: 3.1
 Tested up to: 4.1.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 
 == Description ==
