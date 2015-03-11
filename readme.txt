@@ -1,5 +1,5 @@
 === Star Review Manager ===
-Contributors: bramd
+Contributors: bramdnl
 Tags: srm, review, manager, review form, form, rating, ratings, star rating, shortcode, business, feedback, rating categories
 Requires at least: 3.1
 Tested up to: 4.1.1
