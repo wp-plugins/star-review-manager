@@ -3,7 +3,7 @@ Contributors: bramdnl
 Tags: srm, review, manager, review form, form, rating, ratings, star rating, shortcode, business, feedback, rating categories
 Requires at least: 3.1
 Tested up to: 4.1.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 
 == Description ==
@@ -49,6 +49,9 @@ More information about this can be found on the help page, located in the admin 
 5. Create a review form and related reviews just with two simple shortcodes
 
 == Changelog ==
+= 1.2.1 =
+* Changed identifier for pagination to srm-page because of issues with WP blogposts
+
 = 1.2 =
 * Added measures to prevent Sql injection.
 * Added measures to avoid XSS

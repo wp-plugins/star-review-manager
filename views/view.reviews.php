@@ -25,7 +25,7 @@
 			$pages = ceil($amount_reviews / $limit);
 			
 			$page = 1; //default
-			$page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
+			$page = min($pages, filter_input(INPUT_GET, 'srm-page', FILTER_VALIDATE_INT, array(
 					'options' => array(
 						'default'   => 1,
 						'min_range' => 1,
@@ -47,6 +47,8 @@
 		//-------------------------------------
 		//-------------------------------------
 		$output = '<!-- '.__("automatically generated review output", "star-review-manager").' -->';
+		$output .= '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
+		$output .= '<a name="srm-reviews-container"></a>';
 		foreach($reviews as $review) {
 			$output .= '<div class="srm-review">';
 			$output .= '<div class="srm-grouping">';
@@ -81,11 +83,11 @@
 		// Display the paging information
 		if($pages > 1) {
 			$output .= '<div class="srm-pagination">';
-			$output .= ($page > 1) ? '<a href="?page=1" class="page-indicator">'. __('first', 'star-review-manager') .'</a>' : '<span class="page-indicator disabled">'. __('first', 'star-review-manager') .'</span>';
+			$output .= ($page > 1) ? '<a href="?srm-page=1" class="page-indicator">'. __('first', 'star-review-manager') .'</a>' : '<span class="page-indicator disabled">'. __('first', 'star-review-manager') .'</span>';
 			for($i = 1; $i <= $pages; $i++) {
-				$output .= '<a href="?page=' . $i . '" class="page-indicator' . ($page == $i ? ' active' : '') . '">' . $i . '</a>';
+				$output .= '<a href="?srm-page=' . $i . '" class="page-indicator' . ($page == $i ? ' active' : '') . '">' . $i . '</a>';
 			}
-			$output .= ($page < $pages) ? '<a href="?page=' . $pages . '" class="page-indicator">'. __('last', 'star-review-manager') .'</a>' : '<span class="page-indicator disabled">'. __('last', 'star-review-manager') .'</span>';
+			$output .= ($page < $pages) ? '<a href="?srm-page=' . $pages . '" class="page-indicator">'. __('last', 'star-review-manager') .'</a>' : '<span class="page-indicator disabled">'. __('last', 'star-review-manager') .'</span>';
 			$output .= '</div>';
 		}
 		return $output;
