@@ -47,8 +47,6 @@
 		//-------------------------------------
 		//-------------------------------------
 		$output = '<!-- '.__("automatically generated review output", "star-review-manager").' -->';
-		$output .= '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
-		$output .= '<a name="srm-reviews-container"></a>';
 		foreach($reviews as $review) {
 			$output .= '<div class="srm-review">';
 			$output .= '<div class="srm-grouping">';
